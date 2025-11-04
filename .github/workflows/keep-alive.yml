@@ -1,0 +1,29 @@
+name: Keep Render Backend Alive
+
+on:
+  schedule:
+    # Runs every 10 minutes
+    - cron: '*/10 * * * *'
+  workflow_dispatch: # Allows manual triggering from GitHub UI
+
+jobs:
+  ping-health-endpoint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping Health Endpoint
+        run: |
+          echo "Pinging health endpoint at $(date)"
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://language-learning-platform-uyqh.onrender.com/health)
+          echo "Health endpoint responded with status code: $response"
+
+          if [ "$response" -eq 200 ]; then
+            echo "✅ Backend is healthy!"
+          else
+            echo "⚠️  Backend returned status code: $response"
+            exit 1
+          fi
+
+      - name: Log completion
+        if: always()
+        run: echo "Keep-alive ping completed at $(date)"
