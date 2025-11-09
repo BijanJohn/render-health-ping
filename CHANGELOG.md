@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-11-09
+
+### Added
+- Support for monitoring multiple Render backend APIs simultaneously
+- New job for Bahasa-Bali API health monitoring (`https://bahasa-bali.onrender.com/health`)
+- Independent job execution for each API for better visibility and granular monitoring
+- Parallel execution of health checks for improved efficiency
+
+### Changed
+- Refactored workflow from single job to multiple independent jobs
+- Updated workflow name from "Keep Render Backend Alive" to "Keep Render Backends Alive"
+- Restructured README to document multiple API monitoring
+- Enhanced monitoring section with instructions for viewing individual job statuses
+- Improved customization documentation with examples for adding new APIs
+
 ## [1.0.0] - 2025-11-04
 
 ### Added
