@@ -52,3 +52,25 @@ jobs:
   #     - name: Log completion
   #       if: always()
   #       run: echo "Bahasa-Bali keep-alive ping completed at $(date)"
+
+  ping-bahasa-indonesia:
+    name: Ping Bahasa-Indonesia API
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping Bahasa-Indonesia Health Endpoint
+        run: |
+          echo "Pinging Bahasa-Indonesia health endpoint at $(date)"
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://bahasa-indo.onrender.com/health)
+          echo "Health endpoint responded with status code: $response"
+
+          if [ "$response" -eq 200 ]; then
+            echo "✅ Bahasa-Indonesia backend is healthy!"
+          else
+            echo "⚠️  Bahasa-Indonesia backend returned status code: $response"
+            exit 1
+          fi
+
+      - name: Log completion
+        if: always()
+        run: echo "Bahasa-Indonesia keep-alive ping completed at $(date)"
