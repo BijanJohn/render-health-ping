@@ -61,7 +61,7 @@ jobs:
       - name: Ping Bahasa-Indonesia Health Endpoint
         run: |
           echo "Pinging Bahasa-Indonesia health endpoint at $(date)"
-          response=$(curl -s -o /dev/null -w "%{http_code}" https://bahasa-indo.onrender.com/health)
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://bahasa-indonesia.onrender.com/health)
           echo "Health endpoint responded with status code: $response"
 
           if [ "$response" -eq 200 ]; then

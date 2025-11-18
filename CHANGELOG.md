@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.3.0] - 2025-11-18
 
 ### Added
-- New job for Bahasa-Indonesia API health monitoring (`https://bahasa-indo.onrender.com/health`)
+- New job for Bahasa-Indonesia API health monitoring (`https://bahasa-indonesia.onrender.com/health`)
 - Independent monitoring for the Bahasa-Indonesia language learning backend
 
 ## [1.2.0] - 2025-11-18
