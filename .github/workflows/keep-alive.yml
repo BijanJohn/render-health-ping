@@ -7,51 +7,51 @@ on:
   workflow_dispatch: # Allows manual triggering from GitHub UI
 
 jobs:
-  ping-persian-chai:
-    name: Ping Persian-Chai API
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Ping Persian-Chai Health Endpoint
-        run: |
-          echo "Pinging Persian-Chai health endpoint at $(date)"
-          response=$(curl -s -o /dev/null -w "%{http_code}" https://language-learning-platform-uyqh.onrender.com/health)
-          echo "Health endpoint responded with status code: $response"
-
-          if [ "$response" -eq 200 ]; then
-            echo "✅ Persian-Chai backend is healthy!"
-          else
-            echo "⚠️  Persian-Chai backend returned status code: $response"
-            exit 1
-          fi
-
-      - name: Log completion
-        if: always()
-        run: echo "Persian-Chai keep-alive ping completed at $(date)"
-
-  # Temporarily disabled - Bahasa-Bali app on hold
+  # Temporarily disabled - Persian-Chai app on hold
   # Uncomment the block below to re-enable health checks
-  # ping-bahasa-bali:
-  #   name: Ping Bahasa-Bali API
+  # ping-persian-chai:
+  #   name: Ping Persian-Chai API
   #   runs-on: ubuntu-latest
 
   #   steps:
-  #     - name: Ping Bahasa-Bali Health Endpoint
+  #     - name: Ping Persian-Chai Health Endpoint
   #       run: |
-  #         echo "Pinging Bahasa-Bali health endpoint at $(date)"
-  #         response=$(curl -s -o /dev/null -w "%{http_code}" https://bahasa-bali.onrender.com/health)
+  #         echo "Pinging Persian-Chai health endpoint at $(date)"
+  #         response=$(curl -s -o /dev/null -w "%{http_code}" https://language-learning-platform-uyqh.onrender.com/health)
   #         echo "Health endpoint responded with status code: $response"
 
   #         if [ "$response" -eq 200 ]; then
-  #           echo "✅ Bahasa-Bali backend is healthy!"
+  #           echo "✅ Persian-Chai backend is healthy!"
   #         else
-  #           echo "⚠️  Bahasa-Bali backend returned status code: $response"
+  #           echo "⚠️  Persian-Chai backend returned status code: $response"
   #           exit 1
   #         fi
 
   #     - name: Log completion
   #       if: always()
-  #       run: echo "Bahasa-Bali keep-alive ping completed at $(date)"
+  #       run: echo "Persian-Chai keep-alive ping completed at $(date)"
+
+  ping-bahasa-bali:
+    name: Ping Bahasa-Bali API
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping Bahasa-Bali Health Endpoint
+        run: |
+          echo "Pinging Bahasa-Bali health endpoint at $(date)"
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://bahasa-bali.onrender.com/health)
+          echo "Health endpoint responded with status code: $response"
+
+          if [ "$response" -eq 200 ]; then
+            echo "✅ Bahasa-Bali backend is healthy!"
+          else
+            echo "⚠️  Bahasa-Bali backend returned status code: $response"
+            exit 1
+          fi
+
+      - name: Log completion
+        if: always()
+        run: echo "Bahasa-Bali keep-alive ping completed at $(date)"
 
   ping-bahasa-indonesia:
     name: Ping Bahasa-Indonesia API
